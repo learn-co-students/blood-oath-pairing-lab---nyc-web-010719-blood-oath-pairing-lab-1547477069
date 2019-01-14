@@ -1,6 +1,6 @@
 class Cult
 
-  attr_accessor :location, :founding_year, :slogan, :followers, :minimum_age
+  attr_accessor :location, :founding_year, :slogan, :minimum_age
   attr_reader :name
 
   @@all = []
@@ -74,6 +74,18 @@ class Cult
     freq = locations.inject(Hash.new(0)) { |a, b| a[b] += 1; a }
     locations.max_by { | location | freq[location] }
     # taken from stack overflow...confused!! but works.
+  end
+
+  def blood_oaths
+    BloodOath.all.select do | oath |
+      oath.cult == self
+    end
+  end
+
+  def followers
+    self.blood_oaths.map do | oath |
+      oath.follower
+    end
   end
 
 end # end of Cult class

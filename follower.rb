@@ -1,6 +1,6 @@
 class Follower
 
-  attr_accessor :age, :life_motto, :cults
+  attr_accessor :age, :life_motto
   attr_reader :name
 
   @@all = []
@@ -52,6 +52,18 @@ class Follower
   def fellow_cult_members
     @@all.select do | follower |
       follower.cults == self.cults
+    end
+  end
+
+  def blood_oaths
+    BloodOath.all.select do | oath |
+      oath.follower == self
+    end
+  end
+
+  def cults
+    self.blood_oaths.map do | oath |
+      oath.cult
     end
   end
 
