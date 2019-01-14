@@ -1,4 +1,4 @@
-Blood Oath Lab
+ Blood Oath Lab
 ==============
 
 In this project, we will be practicing object relationships in Ruby, with a particular emphasis on the `has_many` `through` relationship (aka: many-to-many). Please read the whole README before writing any code!
