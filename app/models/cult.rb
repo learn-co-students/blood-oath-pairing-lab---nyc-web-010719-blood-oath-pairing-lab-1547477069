@@ -63,4 +63,30 @@ class Cult
       c.founding_year == founding_year
     end
   end
+
+  def average_age
+    followers.inject{ |sum, el| sum.age + el.age}.to_f
+  end
+
+  def my_followers_mottos
+    followers.select do |m|
+      puts m.life_motto
+    end
+  end
+
+  def self.least_popular
+    least = 0
+    self.all.each do |l|
+      if l.followers.length < least
+        least = l.followers.length
+      end
+    end
+  end
+
+  def self.most_common_location
+    counts = ""
+    self.all.each do |locale|
+      locale.to_s
+    end
+  end
 end

@@ -15,7 +15,7 @@ c2 = Cult.new("Cult 2", "New Jersey", 2016, "Batman")
 
 f1 = Follower.new("Sam", 22, "Dark Knight")
 f2 = Follower.new("John", 24, "Man of Steel")
-f3= Follower.new("bo", 34, "spiderman")
+f3 = Follower.new("bo", 34, "spiderman")
 
 b1 = BloodOath.new(c1, f1)
 b2 = BloodOath.new(c2, f2)
