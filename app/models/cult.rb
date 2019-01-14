@@ -26,6 +26,28 @@ end
     end
   end
 
+  def self.least_popular
+    container = nil
+    specific_cult = ""
+    @@all.each do |cult|
+      if !container
+        container = cult.cult_population
+        specific_cult = cult
+      elsif cult.cult_population < container
+        container = cult.cult_population
+        specific_cult = cult
+      end
+    end
+    specific_cult
+  end
+
+  def self.most_common_location
+    container = Hash.new(0)
+    @@all.each do |cult|
+      container[cult.location] += 1
+    end
+    container.keys.max
+  end
 
   def initialize(name, location, year, slogan)
     @name = name
@@ -57,6 +79,21 @@ end
 
   def cult_population
     followers.length
+  end
+
+  def average_age
+    #add ages of all of the followers together
+    add_ages = followers.inject(0) do |sum, follower|
+      sum + follower.age
+    end
+    #divide by the number of followers
+    add_ages / followers.length.to_f
+  end
+
+  def my_followers_mottos
+    followers.each do |follower|
+      puts follower.life_motto
+    end
   end
 
 
