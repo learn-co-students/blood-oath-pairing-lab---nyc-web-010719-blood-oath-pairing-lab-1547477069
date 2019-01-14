@@ -1,6 +1,6 @@
 class Cult
 
-  attr_accessor :name, :location, :year, :slogan
+  attr_accessor :name, :location, :year, :slogan, :min_age
 
   @@all = []
 
@@ -49,11 +49,12 @@ end
     container.keys.max
   end
 
-  def initialize(name, location, year, slogan)
+  def initialize(name, location, year, slogan, min_age)
     @name = name
     @location = location
     @year = year
     @slogan = slogan
+    @min_age = min_age
 
     @@all << self
   end
@@ -74,7 +75,11 @@ end
 
 
   def recruit_follower(follower)
-    BloodOath.new("_#{Date.today}_",follower, self)
+    if follower.age > @min_age
+      BloodOath.new("_#{Date.today}_",follower, self)
+    else
+      "You are too young to join come back with a a fake ID"
+    end
   end
 
   def cult_population
@@ -95,6 +100,7 @@ end
       puts follower.life_motto
     end
   end
+
 
 
 end #end of cult class

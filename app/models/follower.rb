@@ -72,7 +72,11 @@ class Follower
   end
 
   def join_cult(cult)
-    BloodOath.new("_#{Date.today}_",self,cult)
+    if self.age > cult.min_age
+      BloodOath.new("_#{Date.today}_",self,cult)
+    else
+      "You are too young to join come back with a a fake ID"
+    end
   end
 
   def my_cults_slogans
@@ -80,6 +84,21 @@ class Follower
       puts cult.slogan
     end
   end
+
+  def fellow_cult_members
+    my_friends = []
+    self.cults.map do |my_cult|
+      my_cult.bloodoaths.each do |bo|
+        if bo.follower != self
+          my_friends << bo.follower
+        end
+      end
+   end
+  my_friends.flatten
+ end
+
+
+
 
 
 
