@@ -19,30 +19,12 @@ katie = Follower.new("Katie", 30, "I'm so old!!!")
 
 zev = Follower.new("Zev", 20, "I'm not so young")
 
-peter2 = Follower.new("Peter", 25, "Cults are king!")
-
-katie2 = Follower.new("Katie", 30, "I'm so old!!!")
-
-zev2 = Follower.new("Zev", 20, "I'm not so young")
-
-peter3 = Follower.new("Peter", 25, "Cults are king!")
-
-katie3 = Follower.new("Katie", 30, "I'm so old!!!")
-
-zev3 = Follower.new("Zev", 20, "I'm not so young")
-
-peter4 = Follower.new("Peter", 25, "Cults are king!")
-
-katie4 = Follower.new("Katie", 30, "I'm so old!!!")
-
-zev4 = Follower.new("Zev", 20, "I'm not so young")
-
 
 bo1 = BloodOath.new("_2012-04-22_",zev,starbucks)
 
 bo2 = BloodOath.new("_2019-01-14_", katie, starbucks)
 
-bo3 = BloodOath.new("_2019-01-14_", zev, crossfit)
+bo3 = BloodOath.new("_2010-01-14_", peter, crossfit)
 
 
 binding.pry

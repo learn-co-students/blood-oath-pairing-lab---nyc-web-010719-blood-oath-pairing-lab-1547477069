@@ -10,7 +10,7 @@ class Follower
 
   def self.of_a_certain_age(age)
     @@all.select do |follower|
-      follower.age == age
+      follower.age >= age
     end
   end
 
@@ -43,16 +43,11 @@ class Follower
     # take array of all followers
     # order array by cults.length
     # return top 10
-
     array = @@all.sort_by do |follower|
       follower.cults.length
     end
-
     array.reverse!
-
     array.slice(0..9)
-
-
   end
 
   def initialize(name, age, life_motto)
